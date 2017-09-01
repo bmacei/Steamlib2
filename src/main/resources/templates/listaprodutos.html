@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+ <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+ 
+<head>
+<style>
+	header{
+    		background-color: #EEF;
+    		margin-bottom: ;
+    		
+    }
+	table{
+		border: 1px solid grey;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: grey;
+		width: 40%;
+		text-align: center; 
+	}
+	th{
+		background-color: grey;
+		color: white;
+		font-weight: bold;
+		font-size: 150%;
+	}
+	td{
+		border: 1px solid grey;
+		background-color: white;
+		font-size: 125%;
+	}
+	
+	
+</style>
+
+<title>Lista de Jogos</title>
+</head>
+<body> 
+	<!-- <header>
+		<table  cellspacing="2">
+			<th margin="0%">
+				<form action="/listaprodutos">
+            	
+            	<input class="botoes" type="button" value="Produtos"/>
+       	 		</form>
+			</th>
+			<th>
+				<a href="/">
+				
+				</a>
+			</th>
+			<th>
+			<p th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</p>
+
+        	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        	</form>
+        	</th>
+		</table>
+
+	</header> -->
+	<!-- <header>
+        <p th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</p>
+
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+        </header> -->
+	<table cellspacing="1" id="prodTable">
+  <thead>
+    <tr id="headerT">
+    	<th class="prodHeader" width="15%" th:text="Codigozin">id</th>
+      	<th class="prodHeader" th:text="Nomezin">Nome</th>
+      	<th class="prodHeader" width="10%" th:text="Precin">Preco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="jog: ${jogos}">
+    	<td th:text="${jog.id}"></td>
+      	<td th:text="${jog.nome}"></td>
+      	<!-- <td th:text="${#numbers.formatDecimal(prod.preco, 1, 2)}"></td> -->
+    </tr>
+  </tbody>
+	</table>
+</body>
+</html>
